@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kite Shield | Sign in</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#101828;background:#f4f6fa}
+.wrap{min-height:100vh;display:grid;grid-template-columns:5fr 6fr}
+.side{background:#0b1730;color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+.side h1{font-size:32px;line-height:1.2;letter-spacing:-.5px;margin:0 0 14px;max-width:420px}
+.side p{color:#9fb0cc;max-width:400px;margin:0}
+.side small{color:#6f84a8}
+.main{display:flex;align-items:center;justify-content:center;padding:32px 20px}
+.card{width:100%;max-width:400px}
+h2{font-size:22px;margin:0 0 4px}
+.tabs{display:flex;border-bottom:1px solid #e1e6ef;margin:18px 0 22px}
+.tabs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;padding:12px;font:600 15px system-ui,sans-serif;color:#667085;cursor:pointer}
+.tabs button.on{color:#101828;border-color:#1d4ed8}
+label{display:block;font-size:14px;font-weight:600;margin:14px 0 6px}
+input{width:100%;padding:11px 12px;font:15px system-ui,sans-serif;border:1px solid #cfd8e6;border-radius:6px;background:#fff;color:#101828}
+input:focus-visible,button:focus-visible{outline:2px solid #1d4ed8;outline-offset:2px}
+.go{width:100%;margin-top:20px;padding:12px;border:0;border-radius:6px;background:#1d4ed8;color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.go:disabled{opacity:.6}
+.or{display:flex;align-items:center;gap:12px;color:#667085;font-size:13px;margin:18px 0}
+.or:before,.or:after{content:"";flex:1;height:1px;background:#e1e6ef}
+.msg{min-height:22px;font-size:14px;margin-top:14px}
+.err{color:#c62828}.ok{color:#0f8a5f}
+.link{background:none;border:0;color:#1d4ed8;font:600 14px system-ui,sans-serif;padding:0;cursor:pointer}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:4px;border:1px solid #0f8a5f;color:#0f8a5f}
+[hidden]{display:none!important}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}.side{padding:24px}.side h1{font-size:24px}}
+</style></head><body>
+<div class="wrap">
+<aside class="side">
+<div class="brand"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b9bff" stroke-width="2" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke-linecap="round"/></svg>Kite Shield</div>
+<div><h1>Screen scam messages before they reach your customers.</h1><p>One account gives you the screening tools, threat reports and API access.</p></div>
+<small>A Kite Connect product</small>
+</aside>
+<main class="main"><div class="card">
+<div id="auth">
+<h2>Welcome</h2>
+<div class="tabs"><button id="tl" class="on" type="button">Sign in</button><button id="ts" type="button">Create account</button></div>
+<div id="gwrap"><div id="gbtn"></div><div class="or">or use email</div></div>
+<form id="login">
+<label for="le">Email</label><input id="le" name="email" type="email" autocomplete="email" required>
+<label for="lp">Password</label><input id="lp" name="password" type="password" autocomplete="current-password" required>
+<button class="go" type="submit">Sign in</button>
+</form>
+<form id="signup" hidden>
+<label for="sn">Full name</label><input id="sn" name="name" autocomplete="name" required minlength="2">
+<label for="se">Email</label><input id="se" name="email" type="email" autocomplete="email" required>
+<label for="sp">Phone (optional)</label><input id="sp" name="phone" type="tel" autocomplete="tel">
+<label for="sw">Password</label><input id="sw" name="password" type="password" autocomplete="new-password" required minlength="8">
+<button class="go" type="submit">Create account</button>
+</form>
+<div class="msg" id="msg" role="status" aria-live="polite"></div>
+<button class="link" id="resend" type="button" hidden>Resend verification email</button>
+</div>
+<div id="acct" hidden>
+<h2 id="an"></h2><p id="ae" style="margin:4px 0 12px;color:#667085"></p><span class="badge" id="av"></span>
+<button class="go" id="out" type="button">Sign out</button>
+</div>
+</div></main></div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="/app.js" defer></script>
+</body></html>
